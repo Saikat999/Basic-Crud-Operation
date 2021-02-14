@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.mainpart{
+    width: 100%;
+    height: 93vh;
+    background-color: rgb(247, 231, 231) !important;
+    padding-top: 10px;
+}
+.footer{
+    width: 100%;
+    height: 7vh;
+    background-color: gray;
+    padding-top: 15px;
+}

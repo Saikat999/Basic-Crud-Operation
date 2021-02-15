@@ -26,6 +26,7 @@
                                    <th>Name</th>
                                    <th>Designation</th>
                                    <th>Salary</th>
+                                   <th>Image</th>
                                    <th>Action</th>
                                </tr>
                            </thead>
@@ -36,6 +37,7 @@
                                        <td>{{$post->name}}</td>
                                        <td>{{$post->designation}}</td>
                                        <td>{{$post->salary}}</td>
+                                       <td><img src="{{asset('uploads/employee/'.$post->image)}}" style="width: 50px; height:50px;" alt="image"></td>
                                        <td>
                                            <a href="/employee/{{$post->id}}" class="btn btn-info">Details</a>
                                            <a href="/edit-employee/{{$post->id}}" class="btn btn-primary">Edit</a>

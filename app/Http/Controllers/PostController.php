@@ -15,10 +15,26 @@ class PostController extends Controller
 
     public function createEmployee(Request $req)
     {
-       $post = new Post;
+        $validateData = $req->validate([
+            'image' => 'required|mimes:jpeg,jpg,png|max:1000',
+           ]);
+    
+
+       $post = new Post();
        $post->name = $req->name;
        $post->designation = $req->designation;
        $post->salary = $req->salary;
+
+       if($req->hasfile('image')){
+           $file = $req->file('image');
+           $ext = $file->getClientOriginalExtension();
+           $filename = time().'.'.$ext;
+           $file->move('uploads/employee/',$filename);
+           $post->image=$filename;
+       }else{
+           return $req;
+           $post->image='';
+       }
        $post->save();
 
        return back()->with('success','Employee added successfully');
@@ -49,11 +65,15 @@ class PostController extends Controller
 
     public function updateEmployee(Request $req)
     {
+       
         $post =Post::find($req->id);
         $post->name = $req->name;
         $post->designation = $req->designation;
         $post->salary = $req->salary;
+        
         $post->save();
         return back()->with('success','Updated Successfully');
     }
+
+  
 }

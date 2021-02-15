@@ -17,7 +17,7 @@
                         <h4 class="text-center">Add Employee</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('create.employee')}}" method="post">
+                        <form action="{{route('create.employee')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="name">Employee Name</label>
@@ -30,6 +30,10 @@
                             <div class="form-group">
                                 <label for="salary">Salary</label>
                                 <input type="number" name="salary" class="form-control" placeholder="Insert salary"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Image</label>
+                                <input type="file" name="image" class="form-control">
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>

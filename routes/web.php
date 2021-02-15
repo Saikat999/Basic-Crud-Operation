@@ -31,6 +31,8 @@ Route::get('/delete-employee/{id}',[PostController::class,'deleteEmployee']);
 Route::get('/edit-employee/{id}',[PostController::class,'editEmployee']);
 Route::post('/update-employee',[PostController::class,'updateEmployee'])->name('update.employee');
 
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
